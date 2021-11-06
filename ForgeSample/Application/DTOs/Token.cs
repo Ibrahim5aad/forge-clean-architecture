@@ -5,15 +5,10 @@ namespace ForgeSample.Application.DTOs
     /// <summary>
     /// Class Token.
     /// </summary>
-    public class Token
+    public struct Token
     {
-        public double ExpiresIn { get; set; }
+        public int expires_in { get; set; }
 
-        public string AccessToken { get; internal set; }
-
-        public string RefreshToken { get; internal set; }
-
-        public DateTime ExpiresAt { get; internal set; }
-
+        public string access_token { get; internal set; } 
     }
 }

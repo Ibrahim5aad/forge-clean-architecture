@@ -55,6 +55,9 @@ $(document).ready(function () {
         break;
     }
   });
+
+  //showUser();
+
 });
 
 function createNewBucket() {
@@ -267,6 +270,17 @@ function translateObject(node) {
     }
   })
 }
+
+function showUser() {
+    jQuery.ajax({
+        url: '/api/forge/user/profile',
+        success: function (profile) {
+            var img = '<img src="' + profile.picture + '" height="30px">';
+            $('#userInfo').html(img + profile.name);
+        }
+    });
+}
+
 
 var connection;
 var connectionId;

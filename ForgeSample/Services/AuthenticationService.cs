@@ -32,6 +32,13 @@ namespace ForgeSample.Services
         /// <value>The public token.</value>
         public Token PublicToken { get; set; }
 
+
+        /// <summary>
+        /// Gets the expires at.
+        /// </summary>
+        /// <value>The expires at.</value>
+        public DateTime ExpiresAt { get; internal set; }
+
         #endregion
 
         #region Methods
@@ -41,10 +48,10 @@ namespace ForgeSample.Services
         /// </summary> 
         public async Task<Token> GetPublicTokenAsync()
         {
-            if (PublicToken == null || PublicToken.ExpiresAt < DateTime.UtcNow)
+            if (PublicToken.access_token == null || ExpiresAt < DateTime.UtcNow)
             {
                 PublicToken = await Get2LeggedTokenAsync(new Scope[] { Scope.ViewablesRead });
-                PublicToken.ExpiresAt = DateTime.UtcNow.AddSeconds(PublicToken.ExpiresIn);
+                ExpiresAt = DateTime.UtcNow.AddSeconds(PublicToken.expires_in);
             }
             return PublicToken;
         }
@@ -55,7 +62,7 @@ namespace ForgeSample.Services
         /// </summary>
         public async Task<Token> GetInternalTokenAsync()
         {
-            if (InternalToken == null || InternalToken.ExpiresAt < DateTime.UtcNow)
+            if (InternalToken.access_token == null || ExpiresAt < DateTime.UtcNow)
             {
                 InternalToken = await Get2LeggedTokenAsync(new Scope[] {
                     Scope.BucketCreate,
@@ -65,7 +72,7 @@ namespace ForgeSample.Services
                     Scope.DataWrite,
                     Scope.DataCreate
                 });
-                InternalToken.ExpiresAt = DateTime.UtcNow.AddSeconds(InternalToken.ExpiresIn);
+                ExpiresAt = DateTime.UtcNow.AddSeconds(InternalToken.expires_in);
             }
             return InternalToken;
         }
@@ -77,16 +84,16 @@ namespace ForgeSample.Services
         private async Task<Token> Get2LeggedTokenAsync(Scope[] scopes)
         {
             TwoLeggedApi oauth = new TwoLeggedApi();
-            string grantType = "client_credentials";
             dynamic bearer = await oauth.AuthenticateAsync(
               mUtils.GetAppSetting("FORGE_CLIENT_ID"),
               mUtils.GetAppSetting("FORGE_CLIENT_SECRET"),
-              grantType,
+              oAuthConstants.CLIENT_CREDENTIALS,
               scopes);
+             
             return new Token
             {
-                AccessToken = bearer.access_token,
-                ExpiresIn = bearer.expires_in
+                access_token = bearer.access_token,
+                expires_in = (int)bearer.expires_in
             };
         }
 

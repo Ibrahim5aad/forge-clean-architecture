@@ -2,11 +2,11 @@ using ForgeSample.Application.DTOs;
 using ForgeSample.Application.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+using System.Threading.Tasks; 
 
 namespace ForgeSample.Controllers
 {
-
+     
     [ApiController]
     public class OAuthController : ControllerBase
     {

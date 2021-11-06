@@ -50,7 +50,7 @@ namespace ForgeSample.Controllers
             // prepare the webhook callback
             DerivativeWebhooksApi webhook = new DerivativeWebhooksApi();
              
-            webhook.Configuration.AccessToken = oauth.AccessToken;
+            webhook.Configuration.AccessToken = oauth.access_token;
             dynamic existingHooks = await webhook.GetHooksAsync(DerivativeWebhookEvent.ExtractionFinished);
 
             // get the callback from your settings (e.g. web.config)
@@ -94,9 +94,17 @@ namespace ForgeSample.Controllers
 
             // start the translation
             DerivativesApi derivative = new DerivativesApi();
-            derivative.Configuration.AccessToken = oauth.AccessToken;
-            dynamic jobPosted = await derivative.TranslateAsync(job, true/* force re-translate if already here, required data:write*/);
+            derivative.Configuration.AccessToken = oauth.access_token;
+            try
+            {
+                dynamic jobPosted = await derivative.TranslateAsync(job, true/* force re-translate if already here, required data:write*/);
             return jobPosted;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            } 
         }
 
 
@@ -114,7 +122,7 @@ namespace ForgeSample.Controllers
         {
             Token token = await _authenticationService.GetInternalTokenAsync();
             DerivativesApi derivative = new DerivativesApi();
-            derivative.Configuration.AccessToken = token.AccessToken;
+            derivative.Configuration.AccessToken = token.access_token;
             await derivative.DeleteManifestAsync(objectModel.objectName);
             return Ok();
         }

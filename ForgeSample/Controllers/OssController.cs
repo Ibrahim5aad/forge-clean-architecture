@@ -78,7 +78,7 @@ namespace ForgeSample.Controllers
             {
                 // in this case, let's return all buckets
                 BucketsApi appBckets = new BucketsApi();
-                appBckets.Configuration.AccessToken = oauth.AccessToken;
+                appBckets.Configuration.AccessToken = oauth.access_token;
 
                 // to simplify, let's return only the first 100 buckets
                 dynamic buckets = await appBckets.GetBucketsAsync("US", 100);
@@ -91,7 +91,7 @@ namespace ForgeSample.Controllers
             {
                 // as we have the id (bucketKey), let's return all 
                 ObjectsApi objects = new ObjectsApi();
-                objects.Configuration.AccessToken = oauth.AccessToken;
+                objects.Configuration.AccessToken = oauth.access_token;
                 var objectsList = await objects.GetObjectsAsync(id, 100);
                 foreach (KeyValuePair<string, dynamic> objInfo in new DynamicDictionaryItems(objectsList.items))
                 {
@@ -112,7 +112,7 @@ namespace ForgeSample.Controllers
         {
             BucketsApi buckets = new BucketsApi();
             Token token = await _authenticationService.GetInternalTokenAsync();
-            buckets.Configuration.AccessToken = token.AccessToken;
+            buckets.Configuration.AccessToken = token.access_token;
             PostBucketsPayload bucketPayload = new PostBucketsPayload(string.Format("{0}-{1}", ClientId, bucket.bucketKey.ToLower()), null, bucket.policyKey);
             return await buckets.CreateBucketAsync(bucketPayload, "US");
         }
@@ -124,7 +124,7 @@ namespace ForgeSample.Controllers
         {
             BucketsApi buckets = new BucketsApi();
             Token token = await _authenticationService.GetInternalTokenAsync();
-            buckets.Configuration.AccessToken = token.AccessToken;
+            buckets.Configuration.AccessToken = token.access_token;
             await buckets.DeleteBucketAsync(bucket.bucketKey);
             return Ok();
         }
@@ -136,7 +136,7 @@ namespace ForgeSample.Controllers
         {
             ObjectsApi objects = new ObjectsApi();
             Token token = await _authenticationService.GetInternalTokenAsync();
-            objects.Configuration.AccessToken = token.AccessToken;
+            objects.Configuration.AccessToken = token.access_token;
             string objectName = objectModel.objectName.Base64Decode().Split("/")[1];
             await objects.DeleteObjectAsync(objectModel.bucketKey, System.Web.HttpUtility.UrlDecode(objectName));
             return Ok();
@@ -163,7 +163,7 @@ namespace ForgeSample.Controllers
             // get the bucket...
             Token oauth = await _authenticationService.GetInternalTokenAsync();
             ObjectsApi objects = new ObjectsApi();
-            objects.Configuration.AccessToken = oauth.AccessToken;
+            objects.Configuration.AccessToken = oauth.access_token;
 
             // upload the file/object, which will create a new object
             dynamic uploadedObj;
