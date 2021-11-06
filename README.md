@@ -1,4 +1,4 @@
-# View Models (.NET Core C#)
+# Forge Sample (.NET Core C#)
 
 ![Platforms](https://img.shields.io/badge/platform-Windows|MacOS-lightgray.svg)
 ![.NET](https://img.shields.io/badge/.NET%20Core-3.1-blue.svg)
@@ -31,9 +31,7 @@ This basic C# WebAPI back-end sample implements a basic list of Buckets and Obje
 
 ## Running locally
 
-Clone this project or download it (this `netcore` branch only). It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
-
-    git clone github.com/Autodesk-Forge/model.derivative-WebAPI-sample.git
+Clone this project: git clone github.com/Autodesk-Forge/model.derivative-WebAPI-sample.git
 
 **Visual Studio** (Windows):
 
@@ -74,21 +72,5 @@ Documentation:
 - [Data Management API](https://developer.autodesk.com/en/docs/data/v2/overview/)
 - [Model Derivative API](https://forge.autodesk.com/en/docs/model-derivative/v2/developers_guide/overview/)
 - [Viewer](https://developer.autodesk.com/en/docs/viewer/v6)
-
-### Tips & Tricks
-
-This sample uses .NET Core and works fine on both Windows and MacOS, see [this tutorial for MacOS](https://github.com/augustogoncalves/dotnetcoreheroku).
-
-### Troubleshooting
-
-1. **error setting certificate verify locations** error: may happen on Windows, use the following: `git config --global http.sslverify "false"`
-
-2. **Using Visual Studio 2015 (or older)**: unfortunately this version is not supported.
-
-## License
-
-This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
-
-## Written by
-
-Augusto Goncalves [@augustomaia](https://twitter.com/augustomaia), [Forge Partner Development](http://forge.autodesk.com)
+ 
+ 
