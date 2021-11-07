@@ -1,6 +1,6 @@
 # Forge Sample (.NET Core)
 
-![Platforms](https://img.shields.io/badge/platform-Windows|MacOS-lightgray.svg)
+![Platforms](https://img.shields.io/badge/platform-Windows)
 ![.NET](https://img.shields.io/badge/.NET%20Core-3.1-blue.svg)
 [![License](http://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
