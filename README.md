@@ -15,8 +15,8 @@
 
 This basic C# WebAPI back-end sample implements a basic list of Buckets and Objects with an [Autodesk Forge 2 Legged OAuth](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/). 
 
-[3 Legged Authentication](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/) is also available, you can switch between /
-the two OAuth service.
+[3 Legged Authentication](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/) is also available, you can switch between
+the two OAuth services.
 
 The front-end was desiged with pure HTML + JavaScript (jQuery, Bootstrap), no ASPx features (i.e. no WebForms or MVC on this sample). It includes: create and delete buckets, upload and delete object, translate (including `.zip` files). This code is based on [this tutorial](http://learnforge.autodesk.io).
  
