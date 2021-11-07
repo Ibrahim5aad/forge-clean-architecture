@@ -12,14 +12,14 @@ namespace ForgeSample.Controllers
     {
 
         private IMediator _mediator;
-        private IAuthenticationService _authenticationService;
+        private I2leggedAuthenticationService _authenticationService;
 
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthController"/> class.
         /// </summary>
         /// <param name="mediator">The mediator.</param>
-        public OAuthController(IMediator mediator, IAuthenticationService authenticationService)
+        public OAuthController(IMediator mediator, I2leggedAuthenticationService authenticationService)
         {
             _mediator = mediator;
             _authenticationService = authenticationService;

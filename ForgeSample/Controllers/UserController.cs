@@ -10,14 +10,14 @@ namespace ForgeSample.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private IAuthenticationService _authenticationService;
+        private I2leggedAuthenticationService _authenticationService;
 
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserController"/> class.
         /// </summary>
         /// <param name="authenticationService">The authentication service.</param>
-        public UserController(IAuthenticationService authenticationService)
+        public UserController(I2leggedAuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
         }

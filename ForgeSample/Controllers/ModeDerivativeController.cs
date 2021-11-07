@@ -20,7 +20,7 @@ namespace ForgeSample.Controllers
     {
         private IHubContext<ModelDerivativeHub> _hubContext;
         private ModelDerivativeHub _modelDerHub;
-        private IAuthenticationService _authenticationService;
+        private I2leggedAuthenticationService _authenticationService;
 
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace ForgeSample.Controllers
         /// </summary>
         /// <param name="hubContext">The hub context.</param>
         public ModelDerivativeController(IHubContext<ModelDerivativeHub> hubContext, 
-                                         IAuthenticationService authenticationService,
+                                         I2leggedAuthenticationService authenticationService,
                                          ModelDerivativeHub modelDerivativeHub)
         {
             _hubContext = hubContext;

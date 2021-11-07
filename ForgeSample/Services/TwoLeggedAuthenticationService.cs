@@ -10,11 +10,11 @@ namespace ForgeSample.Services
 {
 
     /// <summary>
-    /// Class AuthenticationService.
-    /// Implements the <see cref="ForgeSample.Application.Interfaces.IAuthenticationService" />
+    /// Class TwoLeggedAuthenticationService.
+    /// Implements the <see cref="ForgeSample.Application.Interfaces.I2leggedAuthenticationService" />
     /// </summary>
-    /// <seealso cref="ForgeSample.Application.Interfaces.IAuthenticationService" />
-    public class AuthenticationService : IAuthenticationService
+    /// <seealso cref="ForgeSample.Application.Interfaces.I2leggedAuthenticationService" />
+    public class TwoLeggedAuthenticationService : I2leggedAuthenticationService
     {
 
         #region Properties
@@ -37,7 +37,7 @@ namespace ForgeSample.Services
         /// Gets the expires at.
         /// </summary>
         /// <value>The expires at.</value>
-        public DateTime ExpiresAt { get; internal set; }
+        public DateTime ExpiresAt { get; set; }
 
         #endregion
 

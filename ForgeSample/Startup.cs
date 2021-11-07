@@ -1,16 +1,21 @@
 ﻿using ForgeSample.Application.Hubs;
+using ForgeSample.Application.Interfaces;
+using ForgeSample.Services;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Reflection;
-using AuthService = ForgeSample.Services.AuthenticationService;
-using AuthServiceContract = ForgeSample.Application.Interfaces.IAuthenticationService;
+using System;
+using System.Reflection; 
 
 namespace ForgeSample
 {
+
+    /// <summary>
+    /// Class Startup.
+    /// </summary>
     public class Startup
     {
 
@@ -30,8 +35,18 @@ namespace ForgeSample
 
             });
             services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddTransient<AuthServiceContract, AuthService>();
+            services.AddTransient<I2leggedAuthenticationService, TwoLeggedAuthenticationService>();
+            services.AddTransient<I3leggedAuthenticationService, ThreeLeggedAuthenticationService>();
             services.AddTransient<ModelDerivativeHub>();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
         }
 
 
@@ -56,7 +71,8 @@ namespace ForgeSample
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseHttpsRedirection();
-
+            app.UseSession();
+                
             app.UseEndpoints(routes =>
             {
                 routes.MapHub<ModelDerivativeHub>("/api/signalr/modelderivative");

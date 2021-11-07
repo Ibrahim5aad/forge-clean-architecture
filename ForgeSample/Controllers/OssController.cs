@@ -25,7 +25,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using AuthService = ForgeSample.Application.Interfaces.IAuthenticationService;
+using AuthService = ForgeSample.Application.Interfaces.I2leggedAuthenticationService;
 
 
 namespace ForgeSample.Controllers
