@@ -17,7 +17,7 @@ This basic .NET Core WebAPI back-end sample implements a basic list of Buckets a
 [3 Legged Authentication](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/) is also available, you can switch between
 the two OAuth services.
 
-The front-end was desiged with pure HTML + JavaScript (jQuery, Bootstrap). It includes: create and delete buckets, upload and delete object, translate (including `.zip` files). This code is based on [this tutorial](http://learnforge.autodesk.io).
+The front-end was desiged with pure HTML + JavaScript (jQuery, Bootstrap). It includes: create and delete buckets, upload, delete and translate object (including `.zip` files). This code is based on [this tutorial](http://learnforge.autodesk.io).
  
 # Setup
 
