@@ -1,4 +1,4 @@
-# Forge Sample (.NET Core)
+# Forge Sample - Clean Architecture (.NET Core)
 
 ![.NET](https://img.shields.io/badge/.NET%20Core-3.1-blue.svg)
 [![License](http://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
