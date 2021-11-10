@@ -12,7 +12,7 @@
 
 # Description
 
-This basic .NET Core WebAPI back-end sample implements a basic list of Buckets and Objects with an [Autodesk Forge 2 Legged OAuth](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/). 
+This basic .NET Core WebAPI sample implements a basic list of Buckets and Objects with an [Autodesk Forge 2 Legged OAuth](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/). 
 
 [3 Legged Authentication](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/) is also available, you can switch between
 the two OAuth services.
@@ -57,14 +57,8 @@ At the `.vscode\launch.json`, find the env vars and add your Forge Client ID, Se
 },
 ```
 
-Run `ngrok http 3000` to create a tunnel to your local machine, then copy the address into the `FORGE_WEBHOOK_URL` environment variable.
-
-## Deployment
-
-To deploy this application to Heroku. After clicking on the button below, at the Heroku Create New App page, set your Client ID and Secret for Forge.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
+Run `ngrok http 3000` to create a tunnel to your local machine, then copy the address into the `FORGE_WEBHOOK_URL` environment variable.Ngrok is a cross-platform application that exposes local server ports to the Internet. 
+ 
 # Further Reading
 
 Documentation:
