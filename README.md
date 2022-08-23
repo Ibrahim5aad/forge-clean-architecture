@@ -1,6 +1,6 @@
 # Forge Sample - Clean Architecture (.NET Core)
 
-![.NET](https://img.shields.io/badge/.NET%20Core-3.1-blue.svg)
+![.NET](https://img.shields.io/badge/.NET%206-blue.svg)
 
 [![oAuth2](https://img.shields.io/badge/oAuth2-v1-green.svg)](http://developer.autodesk.com/)
 [![OSS](https://img.shields.io/badge/OSS-v2-green.svg)](http://developer.autodesk.com/)
