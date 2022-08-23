@@ -1,4 +1,4 @@
-# Forge Sample - Clean Architecture (.NET Core)
+# Forge Sample - Clean Architecture
 
 ![.NET](https://img.shields.io/badge/.NET%206-blue.svg)
 
